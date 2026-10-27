@@ -1,0 +1,758 @@
+:root {
+    --bg-page: #f3f7f4;
+    --bg-surface: #ffffff;
+    --bg-soft-green: #e6f0eb;
+    --bg-badge-green: #e1efe8;
+    --bg-badge-red: #fae8e6;
+    --bg-badge-null: #eaeeec;
+    --bg-progress: #dfe8e2;
+
+    --text-main: #1c2b24;
+    --text-secondary: #63736b;
+    --text-muted: #7b8a82;
+
+    --brand-green: #236b4e;
+    --brand-green-dark: #19523b;
+    --brand-red: #a93b33;
+    --brand-red-border: #f1c9c5;
+    --brand-gray-bar: #7b8780;
+
+    --border-light: #e1eae4;
+    --border-input: #d6e1da;
+
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
+    --radius-pill: 999px;
+
+    --shadow-card: 0 2px 6px rgba(28, 43, 36, 0.03);
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0 16px 28px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    font-size: 15px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+
+/* ==========================================================================
+   CAPÇALERA I TÍTOLS (Webtitle, permisionspacetext, nom_apartat, desc_apartat)
+   ========================================================================== */
+
+body > header {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto 14px;
+    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.Webtitle,
+body > header h1,
+#titol {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+    text-align: center;
+}
+
+main > header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 12px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.permisionspacetext,
+main > header > span:first-of-type,
+#subtitol-titol {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--brand-green);
+    margin: 0;
+}
+
+main > header > span:nth-of-type(2) {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+.nom_apartat,
+main > header h2,
+#titolpetit {
+    width: 100%;
+    margin: 2px 0 4px;
+    font-size: 1.85rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: var(--text-main);
+}
+
+.desc_apartat,
+main > header p,
+#text-petit-titol {
+    width: 100%;
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   ICONES I BOTONS GENERALS (icone_petit, boto_general, boto_tornar)
+   ========================================================================== */
+
+.icone_petit {
+    width: 22px;
+    height: 22px;
+    color: var(--brand-green);
+    stroke: var(--brand-green);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.boto_general,
+button {
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-input);
+    border-radius: var(--radius-md);
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.boto_general:hover,
+button:hover {
+    border-color: var(--brand-green);
+}
+
+.boto_general:active,
+button:active {
+    transform: scale(0.99);
+}
+
+.boto_tornar,
+body > header button {
+    position: absolute;
+    left: 0;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 12px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    color: var(--text-main);
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-card);
+}
+
+/* Variants de botons del formulari / accions */
+.boto_continuar,
+form button[type="submit"],
+main > button {
+    background-color: var(--brand-green);
+    color: #ffffff;
+    border-color: var(--brand-green);
+}
+
+.boto_continuar:hover,
+form button[type="submit"]:hover,
+main > button:hover {
+    background-color: var(--brand-green-dark);
+    border-color: var(--brand-green-dark);
+}
+
+.boto_vermell {
+    background-color: var(--bg-badge-red);
+    color: var(--brand-red);
+    border-color: var(--brand-red-border);
+}
+
+.boto_vermell:hover {
+    background-color: #f5d6d2;
+    border-color: var(--brand-red);
+}
+
+.boto_descarregar,
+.boto_importar {
+    background-color: var(--bg-soft-green);
+    color: var(--brand-green);
+    border-color: #c5ddd1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.boto_esperant,
+button:disabled {
+    background-color: var(--bg-badge-null);
+    color: var(--text-muted);
+    border-color: var(--border-light);
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
+/* ==========================================================================
+   INPUTS, SELECTORS I FORMULARIS (input_general, div_formulari, etc.)
+   ========================================================================== */
+
+.div_formulari,
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+fieldset {
+    border: 1px solid var(--border-light);
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+legend {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    padding: 0 6px;
+}
+
+.label_text,
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: -4px;
+}
+
+.input_general,
+.input_text,
+.selector_general,
+.desplegable,
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 11px 14px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    color: var(--text-main);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-input);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input_general::placeholder,
+.input_text::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.input_general:focus,
+.input_text:focus,
+.selector_general:focus,
+.desplegable:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--brand-green);
+    box-shadow: 0 0 0 3px rgba(35, 107, 78, 0.12);
+}
+
+.selector_error,
+input.selector_error,
+select.selector_error {
+    border-color: var(--brand-red);
+    background-color: #fffafa;
+}
+
+.selector_error:focus {
+    box-shadow: 0 0 0 3px rgba(169, 59, 51, 0.14);
+}
+
+/* Checkbox & Switch */
+.checkbox_general,
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand-green);
+    border-radius: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.switch_general {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 44px;
+    height: 24px;
+    background-color: var(--bg-progress);
+    border-radius: var(--radius-pill);
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: none;
+    vertical-align: middle;
+}
+
+.switch_general::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.switch_general:checked {
+    background-color: var(--brand-green);
+}
+
+.switch_general:checked::after {
+    transform: translateX(20px);
+}
+
+/* ==========================================================================
+   CONTENIDORS, TARGETES I BADGES (div_general, text_fitxa, badge, cartes)
+   ========================================================================== */
+
+.div_general,
+.div_fitxa,
+main > section {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.div_general > header,
+.div_fitxa > header,
+.div_llista > header,
+main > section > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.text_fitxa,
+main > section h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Badges */
+.badge,
+.error_badge,
+.null_badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.badge,
+main > section > header > span {
+    background-color: var(--bg-badge-green);
+    color: var(--brand-green);
+}
+
+.error_badge {
+    background-color: var(--bg-badge-red);
+    color: var(--brand-red);
+}
+
+.null_badge {
+    background-color: var(--bg-badge-null);
+    color: var(--text-secondary);
+}
+
+/* Cartes d'estadístiques i botons del menú principal (cartes) */
+.cartes,
+main > div:has(> article) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.cartes > *,
+main > div > article,
+.div_general article {
+    background-color: var(--bg-soft-green);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cartes strong,
+main > div > article strong {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--brand-green);
+}
+
+.cartes span,
+main > div > article span {
+    font-size: 0.82rem;
+    color: var(--brand-green-dark);
+}
+
+/* Graella del menú principal (Gestió) */
+.botons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 540px;
+    margin: 8px auto 0;
+    padding: 0;
+}
+
+.botons button {
+    width: 100%;
+    min-height: 96px;
+    padding: 16px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   LLISTES I OBJECTES DE LLISTA (div_llista, text_indicacio, objecte_llista)
+   ========================================================================== */
+
+.div_llista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text_indicacio,
+#titol-cercador {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.comptador_de_indicacio {
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.div_llista ul,
+.div_llista ol,
+main > section ul,
+main > section ol,
+#llista-alumnes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.objecte_llista,
+main > section ul li,
+main > section ol li,
+#llista-alumnes li {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.objecte_llista:hover,
+.objecte_llista.seleccionat,
+.objecte_llista.active,
+#llista-alumnes li:first-child {
+    background-color: var(--bg-soft-green);
+    border-color: var(--brand-green);
+}
+
+/* Cercle d'inicials o posició dins d'objecte_llista */
+.objecte_llista > span:first-child,
+#llista-alumnes li > span:first-child,
+main > section ol li > strong:first-child {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--bg-soft-green);
+    color: var(--brand-green);
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.objecte_llista.seleccionat > span:first-child,
+#llista-alumnes li:first-child > span:first-child {
+    background-color: var(--bg-surface);
+}
+
+.objecte_llista h4,
+.objecte_llista strong,
+main > section ul li h4,
+#llista-alumnes li strong {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.objecte_llista > span:last-child,
+#llista-alumnes li > span:last-child,
+main > section ol li > span:last-child {
+    margin-left: auto;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--brand-green);
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   FITXA DETALL (div_fitxa, clau_text, valor_text)
+   ========================================================================== */
+
+.div_fitxa p,
+main > section p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.clau_text {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    min-width: 95px;
+}
+
+.valor_text,
+.div_fitxa p span,
+main > section p span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+    text-align: left;
+    flex: 1;
+}
+
+/* ==========================================================================
+   BARRES DE PROGRÉS, ALERTES I NAVEGACIÓ PETITA (barra_progres, alert_msg, nav_petit)
+   ========================================================================== */
+
+.barra_progres,
+progress {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-progress);
+    border-radius: var(--radius-pill);
+    border: none;
+    overflow: hidden;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.barra_progres > div,
+.barra_progres::before {
+    display: block;
+    height: 100%;
+    background-color: var(--brand-green);
+    border-radius: var(--radius-pill);
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--bg-progress);
+    border-radius: var(--radius-pill);
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--brand-green);
+    border-radius: var(--radius-pill);
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--brand-green);
+    border-radius: var(--radius-pill);
+}
+
+/* Alertes */
+.alert_msg,
+.error_alert {
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.alert_msg {
+    background-color: var(--bg-soft-green);
+    color: var(--brand-green-dark);
+    border: 1px solid #c5ddd1;
+}
+
+.error_alert {
+    background-color: var(--bg-badge-red);
+    color: var(--brand-red);
+    border: 1px solid var(--brand-red-border);
+}
+
+/* Navegació petita / Pestanyes de filtre (nav_petit) */
+.nav_petit,
+main > nav {
+    display: flex;
+    gap: 6px;
+    background-color: #e4ede8;
+    padding: 4px;
+    border-radius: var(--radius-md);
+}
+
+.nav_petit button,
+main > nav button {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+.nav_petit button.active,
+.nav_petit button:first-child,
+main > nav button:first-child {
+    background-color: var(--bg-surface);
+    color: var(--brand-green);
+    box-shadow: var(--shadow-card);
+}
+
+/* ==========================================================================
+   PEU DE PÀGINA (frase_estrella)
+   ========================================================================== */
+
+.frase_estrella,
+#text-petit,
+body > p:last-of-type {
+    margin: auto 0 0;
+    padding-top: 22px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 380px) {
+    .botons,
+    .cartes {
+        grid-template-columns: 1fr;
+    }
+}
