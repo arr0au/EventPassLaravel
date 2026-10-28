@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1 id="titol" class="Webtitle">EVENT PASS</h1>
+        <h1 id="titol" class="Webtitle">EventPass</h1>
     </header>
     <main>
         <header>
