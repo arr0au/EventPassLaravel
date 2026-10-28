@@ -55,6 +55,9 @@ En nuestra pestaña de configuración, podemos ver la información de administra
 ## Archivos de inicio de sesión de alumno, usuarios e invitados.
 
 ### Inició de sesión
+
 Nuestra ventana de inicio de sesión, cuenta con una ventana simple donde según que se introduzca, podremos entrar como Administrador de la página, o como un alumno, tambíen, tenemos un pequeño botón para restablecer la contraseña, o para contactar con el soporte de la página.
 
-### 
+### Página principal
+
+En nuestra página principal de usuario
