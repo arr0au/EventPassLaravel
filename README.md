@@ -1,58 +1,60 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# EventPass - El programa de gestión de eventos (Versión alumnos)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este programa está hecho para gestionar eventos de forma dinámica y comodá desde una plataforma basada en html, css, js y php, trabajdo con Laravel 13, que nos permite mantener una estructura comóda de trabajo más fluido.
 
-## About Laravel
+## Ventanas de administración del programa
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Gestionar alumnos
+Desde esta ventana se pueden gestionar los alumnos que tenemos en la base de datos que está vinculada a nuestra página, desde ahí se puede ver la lista de alumnos que tenemos, una barra de buscador para buscar el alumno, y dentro de la lista tenemos los alumnos, con su nombre, DNI/NIE, y al final del objeto su puntaje.
+Justo debajo de la lista que mostrará máximo 4 alumnos, aparecerá una ficha de alumno abajo de la lista, con la información más detallada, incluyendo el correo, QR personal y invitaciones disponibles.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Dar de alta o importar alumnos
+En esta ventana podremos añadir a los alumnos dentro de la base de datos, nada más entrar un nuestra ventana, aparecerá una mini ventana que nos dejará crear un alumno de forma manual, con el nombre, apellido, DNI / NIE, correo electrónico, contraseña inicial, invitaciones y la puntuación inicial (además de un pequeño recordatorio de que el QR personal se generará de forma automática), y hay un botón debajo para crear al alumno.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Luego más abajo nos da la opción de importar alumnos a través de un archivo .csv (hoja de calculo), y no solo eso, si no que nos deja descargar una plantilla de CSV, después de estos 2 botones, sale un pequeño texto con las columnas requeridas de la plantilla,además a la hora de subir un archivo, hay una pestaña de previsualización donde podemos ver los errores que hay en el archivo y nos dice cual es el fallo, y nos da la opción de volver a validar los alumnos, y hay un botón que se desmarcará cuando el CSV esté correcto.
 
-## Learning Laravel
+Y por último de esta pestaña, nos da la opción de eliminar cualquier alumno de la lista que tenemos en la base de datos, si selecionamos un alumno, nos salta un pequeño texto en rojo a modo de advertencia que nos dice si queremos borrar a ese usuario, y abajo salen 2 botones, uno donde nos deja cancelar la selección, y otro que nos deja borrar al alumno.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Consultar invitaciones
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+En esta ventana podemos ver las invitaciones que se han hecho y quién las ha realizado, y nos muestra los detalles de la invitación, nos muestra quién ha invitado y sus invitaciones disponibles, y debajo la persona que han invitado.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Gestionar actos
 
-## Agentic Development
+Dentro de esta ventana, nos volverá a mostrar otra lista con un buscador que máximo nos muestra 3 eventos de los creados, de ahi nos muestra los actos, fecha, hora del evento, y los puntos que da, además que nos muestra si el evento está activo o inactivo.
+Encima de la lista nos sale un botón para añadir un acto, en caso de seleccionar un evento, saldrá un submenú debajo que nos permite editar el evento, y por ende todos sus campos como el nombre, descripción, Ubicación, fecha, hora de inicio / finalización, la puntuación y si está activo o no. Luego nos dejará elejir si queremos guardar los cambios o queremos eliminar el evento.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Gestionar puntos de control
 
-```bash
-composer require laravel/boost --dev
+Aquí dentro, nos deja ver todos los puntos de control de cada tipo de eventos tenemos, por ejemplo puerta principal, el acceso al auditorio, entre muchos otros, además que nos deja ver por sublistas de cada sección cuantos registros tiene cada punto de control, y si se selecciona uno, nos deja cambiar el nombre del evento.
 
-php artisan boost:install
-```
+Debajo de la sección de cambio de nombre nos dejará añadir un punto de control, que nos deja poner el nombre del punto, y el registro donde irá.
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Y justo debajo de la sección de añadir un punto, tenemos una sección para eliminar un punto de control.
 
-## Contributing
+### Consultar registros de acceso
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Desde esta página podemos filtrar los accesos por evento, fecha, resultados o punto de control, y nos muestra los registros que se han hecho en base a los varemos de búsqueda, y al pulsar en un registro, nos muestra información detalla del regsitro.
 
-## Code of Conduct
+### Consultar asistentes
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+En esta ventana podemos consultar los asistentes que tenemos guardados, las personas que hay registradas, las validaciones, los alumnos, los invitados de cada acto, justo debajo de estos grandes números, nos salen los asistentes que han asistido al evento y a que hora han fichado, nos deja ver los detalles del asistente, y nos deja ver si su validación al evento ha sido correcta o incorrecta.
 
-## Security Vulnerabilities
+### Consultar estadisticas
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+En esta pestaña podemos ver varias secciones, podemos consultar si queremos ver de todos los eventos o evento por evento, nos muestra las personas e invitaciones, y nos hace un calculo de cuantos invitados hay de todas las personas que han asistido, y abajo nos muestra una fracción de cuantos invitados hay, y nos muestra del total de alumnos, todas las invitaciones y cuantos se han invitado, nos deja ver también la participación por acto, el numero de personas u registros, y los resultados de validación, y por último sale cuantos registros se han hecho en cada punto de control, por ejemplo puerta, acceso auditorio, vestíbulo, etc.
 
-## License
+### Consultar ranking
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+En esta pestaña se muestra la clase con más puntaje, y luego un mini ranking con los alumnos con más puntos, si se selecciona al alumno con más puntos se ve la información, puntaje, y la clase a la que pertenece.
+
+### Configuración
+
+En nuestra pestaña de configuración, podemos ver la información de administrador de la página, nos deja cambiar la contraseña de la cuenta de administrador, pidiendo la contraseña antigua, y un botón donde podemos guardar la información, cambiar el idioma de preferencia, y cerrar la sesión de administración.
+
+## Archivos de inicio de sesión de alumno, usuarios e invitados.
+
+### Inició de sesión
+Nuestra ventana de inicio de sesión, cuenta con una ventana simple donde según que se introduzca, podremos entrar como Administrador de la página, o como un alumno, tambíen, tenemos un pequeño botón para restablecer la contraseña, o para contactar con el soporte de la página.
+
+### 

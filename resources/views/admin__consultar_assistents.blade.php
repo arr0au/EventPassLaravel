@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventPass - Consultar assistents</title>
-    <script src="resources/js/admin/consultar_assistents.js" defer></script>
-    <link rel="stylesheet" href="resources/css/style.css">
+    <script src="../../js/admin/consultar_assistents.js" defer></script>
+    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
 </head>
 <body>
     <header>
-        <a href="menu.html" class="boto_tornar"><button type="button" class="boto_general boto_tornar">&#8592;</button></a>
+        <a href="{{ route('admin.menu') }}" class="boto_tornar"><button type="button" class="boto_general boto_tornar">&#8592;</button></a>
         <h1 id="titol" class="Webtitle">EventPass</h1>
     </header>
     <main>
