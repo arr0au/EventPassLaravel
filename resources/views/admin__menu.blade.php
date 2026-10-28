@@ -39,7 +39,7 @@
                 <a href="{{ route('admin.consultar_registres') }}"><button type="button" class="boto_general">Consultar registres d'accés</button></a>
             </div>
             <div id="consultarEstadistiques">
-                <a href="{{ url('/consultar_estadistiques') }}"><button type="button" class="boto_general">Consultar estadístiques</button></a>
+                <a href="{{ route('admin.consultar_estadistiques') }}"><button type="button" class="boto_general">Consultar estadistiques</button></a>
             </div>
             <div id="consultarRanquing">
                 <a href="{{ route('admin.consultar_ranquing') }}"><button type="button" class="boto_general">Consultar el rànquing</button></a>

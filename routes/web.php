@@ -42,3 +42,6 @@ Route::get('/configuracio', function () {
     return view('admin__configuracio');
 })->name('admin.configuracio');
 
+Route::get('/consultar_estadistiques', function () {
+    return view('admin__consultar_estadistiques');
+})->name('admin.consultar_estadistiques');
