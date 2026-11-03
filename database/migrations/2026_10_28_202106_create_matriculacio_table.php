@@ -23,10 +23,8 @@ return new class extends Migration
                 ->cascadeOnDelete();
 
             $table->foreignId("escanejador_id")
-                ->nullable()
                 ->constrained("escanejador")
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
+                ->cascadeOnUpdate();
             
             $table->string("Punt_de_control", 64)->nullable();
             $table->date("Data")->nullable();

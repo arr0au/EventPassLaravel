@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string("Cognom", 32);
             $table->string("Correu", 128);
             $table->string("QR_Personal", 256);
-            $table->timestamps();
+            $table->foreignId("alumne_id")
+                ->constrained("alumne")
+                ->cascadeOnUpdate();
+            $table->timestamps();           
         });
     }
 
