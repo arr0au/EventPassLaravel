@@ -1,7 +1,17 @@
 <?php
 
+use App\Http\Controllers\AlumneController;
 use Illuminate\Support\Facades\Route;
 
+    Route::get('/', function () {
+    return view('admin__menu');
+    })->name('admin.menu');
+
+    Route::resource('alumne',AlumneController::class);
+
+
+
+/* 
 Route::get('/', function () {
     return view('admin__menu');
 })->name('admin.menu');
@@ -45,3 +55,4 @@ Route::get('/configuracio', function () {
 Route::get('/consultar_estadistiques', function () {
     return view('admin__consultar_estadistiques');
 })->name('admin.consultar_estadistiques');
+*/

@@ -9,7 +9,7 @@
 <body>
 
     <header>
-<a href="{{ route('admin.menu') }}" class="boto_tornar"><button type="button" class="boto_general boto_tornar">&#8592;</button></a>            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<a  class="boto_tornar"><button type="button" class="boto_general boto_tornar">&#8592;</button></a>            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
         </button>
@@ -30,7 +30,7 @@
                 <span class="badge">Nova alta</span>
             </header>
 
-            <form class="div_formulari" style="gap: 12px; margin-top: 4px;">
+            <form class="div_formulari" style="gap: 12px; margin-top: 4px;" action="route('alumne.store')">
                 <div style="display: flex; gap: 12px;">
                     <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
                         <label class="label_text">Nom</label>
