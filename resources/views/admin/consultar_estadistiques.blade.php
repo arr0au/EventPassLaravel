@@ -9,8 +9,8 @@
 <body>
 
     <header>
-        <a href="{{ route('admin.menu') }}" class="boto_tornar"><button type="button" class="boto_general boto_tornar">&#8592;</button></a>
-        <h1 class="Webtitle">EventPass</h1>
+      <!--  <a href="{{ route('admin.menu') }}" class="boto_tornar"><button type="button" class="boto_general boto_tornar">&#8592;</button></a>
+        <h1 class="Webtitle">EventPass</h1>-->
     </header>
 
     <main>

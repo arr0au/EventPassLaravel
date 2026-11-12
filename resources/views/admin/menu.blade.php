@@ -17,13 +17,15 @@
             <p id="text-petit-titol" class="desc_apartat">Totes les eines per organitzar els teus actes.</p>
         </header>
         <div class="botons">
-            <div id="gestionarAlumnes">
-                <a href="{{ route('gestionar_alumnes') }}"><button type="button" class="boto_general">Gestionar Alumnes</button></a>
+            
+        <div id="gestionarAlumnes">
+            <!--
+                <a href="{{ route('admin.gestionar_alumnes') }}"><button type="button" class="boto_general">Gestionar Alumnes</button></a>
             </div>
             <div id="importarAlumnes">
                 <a href="{{ route('admin.import_alumnes') }}"><button type="button" class="boto_general">Importar o donar d'alta alumnes</button></a>
             </div>
-            <!--
+            
             <div id="gestionarActes">
                 <a href="{{ route('admin.gestionar_actes') }}"><button type="button" class="boto_general">Gestionar Actes i activitats</button></a>
             </div>

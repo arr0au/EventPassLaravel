@@ -9,18 +9,12 @@ class AlumneController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('admin__gestionar_alumnes');
-    }
+    public function index() {}
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('admin__import_alumnes');
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
@@ -60,5 +54,8 @@ class AlumneController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function estadistiques(){
+        return view("admin.consultar_estadistiques");
     }
 }

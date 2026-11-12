@@ -1,13 +1,25 @@
 <?php
 
+use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\AlumneController;
+use App\Http\Controllers\ConvidatController;
+use App\Http\Controllers\EscanejadorController;
+use App\Http\Controllers\EsdevenimentController;
+use App\Http\Controllers\MatriculacioController;
 use Illuminate\Support\Facades\Route;
 
     Route::get('/', function () {
-    return view('admin__menu');
+    return view('admin.menu');
     })->name('admin.menu');
 
-    Route::resource('alumne',AlumneController::class);
+    Route::resources([
+        'alumne' => AlumneController::class,
+        'administrador' => AdministradorController::class,
+        'convidat' => ConvidatController::class,
+        'escanejador' => EscanejadorController::class,
+        'esdeveniment' => EsdevenimentController::class,
+        'matriculacio' => MatriculacioController::class
+    ]);
 
 
 
