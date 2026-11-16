@@ -8,10 +8,8 @@ use App\Http\Controllers\EsdevenimentController;
 use App\Http\Controllers\MatriculacioController;
 use Illuminate\Support\Facades\Route;
 
-    Route::get('/', function () {
-    return view('admin.menu');
-    })->name('admin.menu');
 
+    Route::get("/estadistiques_alumnes",[AlumneController::class, "estadistiques"]) -> name("estadistiques");
     Route::resources([
         'alumne' => AlumneController::class,
         'administrador' => AdministradorController::class,

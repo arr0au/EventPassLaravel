@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Alumne;
 class AlumneController extends Controller
 {
     /**
@@ -56,6 +56,7 @@ class AlumneController extends Controller
         //
     }
     public function estadistiques(){
+        $alumnes = Alumne::get();
         return view("admin.consultar_estadistiques");
     }
 }
