@@ -1,68 +1,32 @@
 <?php
 
-use App\Http\Controllers\AdministradorController;
-use App\Http\Controllers\AlumneController;
-use App\Http\Controllers\ConvidatController;
-use App\Http\Controllers\EscanejadorController;
-use App\Http\Controllers\EsdevenimentController;
-use App\Http\Controllers\MatriculacioController;
-use Illuminate\Support\Facades\Route;
+    use App\Http\Controllers\AdministradorController;
+    use App\Http\Controllers\AlumneController;
+    use App\Http\Controllers\ConvidatController;
+    use App\Http\Controllers\EscanejadorController;
+    use App\Http\Controllers\EsdevenimentController;
+    use App\Http\Controllers\MatriculacioController;
+    use Illuminate\Support\Facades\Route;
 
+    Route::name('admin.')->group(function () {
+        Route::view('/', 'admin.menu')->name('menu');
+        Route::view('/gestionar_alumnes', 'admin.gestionar_alumnes')->name('gestionar_alumnes');
+        Route::view('/import_alumnes', 'admin.import_alumnes')->name('import_alumnes');
+        Route::view('/gestionar_actes', 'admin.gestionar_actes')->name('gestionar_actes');
+        Route::view('/consultar_invitacions', 'admin.consultar_invitacions')->name('consultar_invitacions');
+        Route::view('/consultar_assistents', 'admin.consultar_assistents')->name('consultar_assistents');
+        Route::view('/gestio_punts', 'admin.gestio_punts')->name('gestio_punts');
+        Route::view('/consultar_registres', 'admin.consultar_registres')->name('consultar_registres');
+        Route::view('/consultar_ranquing', 'admin.consultar_ranquing')->name('consultar_ranquing');
+        Route::view('/configuracio', 'admin.configuracio')->name('configuracio');
+        Route::get('/consultar_estadistiques', [AlumneController::class, 'estadistiques'])->name('consultar_estadistiques');
+    });
 
-    Route::get("/estadistiques_alumnes",[AlumneController::class, "estadistiques"]) -> name("estadistiques");
     Route::resources([
         'alumne' => AlumneController::class,
         'administrador' => AdministradorController::class,
         'convidat' => ConvidatController::class,
         'escanejador' => EscanejadorController::class,
         'esdeveniment' => EsdevenimentController::class,
-        'matriculacio' => MatriculacioController::class
+        'matriculacio' => MatriculacioController::class,
     ]);
-
-
-
-/* 
-Route::get('/', function () {
-    return view('admin__menu');
-})->name('admin.menu');
-
-Route::get('/gestionar_alumnes', function () {
-    return view('admin__gestionar_alumnes');
-})->name('admin.gestionar_alumnes');
-
-Route::get('/import_alumnes', function () {
-    return view('admin__import_alumnes');
-})->name('admin.import_alumnes');
-
-Route::get('/gestionar_actes', function () {
-    return view('admin__gestionar_actes');
-})->name('admin.gestionar_actes');
-
-Route::get('/consultar_invitacions', function () {
-    return view('admin__consultar_invitacions');
-})->name('admin.consultar_invitacions');
-
-Route::get('/consultar_assistents', function () {
-    return view('admin__consultar_assistents');
-})->name('admin.consultar_assistents');
-
-Route::get('/gestio_punts', function () {
-    return view('admin__gestio_punts');
-})->name('admin.gestio_punts');
-
-Route::get('/consultar_registres', function () {
-    return view('admin__consultar_registres');
-})->name('admin.consultar_registres');
-
-Route::get('/consultar_ranquing', function () {
-    return view('admin__consultar_ranquing');
-})->name('admin.consultar_ranquing');
-
-Route::get('/configuracio', function () {
-    return view('admin__configuracio');
-})->name('admin.configuracio');
-
-Route::get('/consultar_estadistiques', function () {
-    return view('admin__consultar_estadistiques');
-})->name('admin.consultar_estadistiques');
-*/
