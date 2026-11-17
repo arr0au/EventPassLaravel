@@ -9,19 +9,28 @@ class AlumneController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {}
+    public function index() {
+        $alumnes = Alumne::get();
+        return view("admin.gestionar_alumnes", 
+        [
+            "alumnes" => $alumnes
+        ]);
+    }
+    
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create() {}
+    public function create() {
+        return view("admin.import_alumnes");
+    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //Función que hará un insert en la BD
+        
     }
 
     /**

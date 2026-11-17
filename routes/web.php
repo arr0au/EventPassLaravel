@@ -8,10 +8,11 @@
     use App\Http\Controllers\MatriculacioController;
     use Illuminate\Support\Facades\Route;
 
+    /*
     Route::name('admin.')->group(function () {
         Route::view('/', 'admin.menu')->name('menu');
         Route::view('/gestionar_alumnes', 'admin.gestionar_alumnes')->name('gestionar_alumnes');
-        Route::view('/import_alumnes', 'admin.import_alumnes')->name('import_alumnes');
+        Route::match(['get', 'post'], '/import_alumnes', fn () => view('admin.import_alumnes'))->name('import_alumnes');
         Route::view('/gestionar_actes', 'admin.gestionar_actes')->name('gestionar_actes');
         Route::view('/consultar_invitacions', 'admin.consultar_invitacions')->name('consultar_invitacions');
         Route::view('/consultar_assistents', 'admin.consultar_assistents')->name('consultar_assistents');
@@ -20,7 +21,7 @@
         Route::view('/consultar_ranquing', 'admin.consultar_ranquing')->name('consultar_ranquing');
         Route::view('/configuracio', 'admin.configuracio')->name('configuracio');
         Route::get('/consultar_estadistiques', [AlumneController::class, 'estadistiques'])->name('consultar_estadistiques');
-    });
+    }); */
 
     Route::resources([
         'alumne' => AlumneController::class,

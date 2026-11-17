@@ -8,7 +8,6 @@
 </head>
 <body>
     <header>
-        <a href="{{ route('admin.menu') }}" class="boto_tornar"><button type="button" class="boto_general boto_tornar">&#8592;</button></a>
         <h1 id="titol" class="Webtitle">EVENT PASS</h1>
     </header>
     <main>
@@ -28,36 +27,15 @@
             <label for="cerca" class="label_text">Cercar alumnes per nom, identificador o punts</label>
             <input id="cerca" class="input_general input_text" type="search" placeholder="Per exemple: Laia, 12345678Z o 80 punts">
             <ul id="llista-alumnes" aria-label="Llista d'alumnes de mostra">
-                <li class="objecte_llista seleccionat">
-                    <span>LV</span>
-                    <strong>Laia Vidal</strong>
-                    <span>12345678Z</span>
-                    <span>80 punts</span>
-                </li>
+
+            @foreach ($alumnes as $alumne) 
                 <li class="objecte_llista">
-                    <span>AS</span>
-                    <strong>Alvaro Soler</strong>
-                    <span>23456789D</span>
-                    <span>60 punts</span>
+                    <strong>{{ $alumne->Nom }}</strong>
+                    <span>{{ $alumne->DNI_NIE }}</span>
+                    <span>{{ $alumne->Puntuacio}}</span>
                 </li>
-                <li class="objecte_llista">
-                    <span>JC</span>
-                    <strong>Júlia Costa</strong>
-                    <span>34567890V</span>
-                    <span>40 punts</span>
-                </li>
-                <li class="objecte_llista">
-                    <span>NR</span>
-                    <strong>Nil Ojeda</strong>
-                    <span>45678901G</span>
-                    <span>20 punts</span>
-                </li>
-                <li class="objecte_llista">
-                    <span>JA</span>
-                    <strong>Jaime Altozano</strong>
-                    <span>23967443T</span>
-                    <span>100 punts</span>
-                </li>
+            @endforeach
+            
             </ul>
             <p id="sense-resultats" class="alert_msg" aria-live="polite" hidden>No s'han trobat alumnes.</p>
         </section>

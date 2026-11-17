@@ -34,11 +34,11 @@
                 <div style="display: flex; gap: 12px;">
                     <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
                         <label class="label_text">Nom</label>
-                        <input type="text" class="input_general" value="Aina">
+                        <input type="text" class="input_general" name="Nom">
                     </div>
                     <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
                         <label class="label_text">Cognom</label>
-                        <input type="text" class="input_general" value="Ferrer">
+                        <input type="text" class="input_general" name="Cognom">
                     </div>
                 </div>
 

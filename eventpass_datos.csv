@@ -1,0 +1,48 @@
+# TABLA: alumne
+id,DNI_NIE,Contrasenya,Nom,Cognom,Correu,QR_Personal,Invitacions_Disponibles,Puntuacio,GrupClasse,created_at,updated_at
+1,12345678A,$2y$12$eImiTXuWVxfM37uY4JANjQ.5q1n9xK0G8mZ6pQ4rS2tU0vW8xY2zK,Marc,Garcia,marc.garcia@eventpass.cat,QR-ALU-12345678A-001,2,150,2DAW,2026-11-01 09:00:00,2026-11-01 09:00:00
+2,23456789B,$2y$12$kL9mN8oP7qR6sT5uV4wX3y.Z2a1b0c9d8e7f6g5h4i3j2k1l0m9nO,Laura,Martinez,laura.martinez@eventpass.cat,QR-ALU-23456789B-002,3,200,2DAW,2026-11-01 09:05:00,2026-11-01 09:05:00
+3,34567890C,$2y$12$pQ4rS2tU0vW8xY2zKeImiT.XuWVxfM37uY4JANjQ5q1n9xK0G8mZ6,Pau,Lopez,pau.lopez@eventpass.cat,QR-ALU-34567890C-003,3,50,1DAM,2026-11-01 09:10:00,2026-11-01 09:10:00
+4,X1234567D,$2y$12$aB1cD2eF3gH4iJ5kL6mN7o.P8qR9sT0uV1wX2yZ3a4b5c6d7e8f9G,Sofia,Vidal,sofia.vidal@eventpass.cat,QR-ALU-X1234567D-004,4,300,2ASIX,2026-11-01 09:15:00,2026-11-01 09:15:00
+5,45678901E,$2y$12$zY9xW8vU7tS6rQ5pO4nM3l.K2j1i0h9g8f7e6d5c4b3a2z1y0x9wV,Alex,Fernandez,alex.fernandez@eventpass.cat,QR-ALU-45678901E-005,3,100,1DAW,2026-11-01 09:20:00,2026-11-01 09:20:00
+
+# TABLA: convidat
+id,DNI_NIE,Nom,Cognom,Correu,QR_Personal,alumne_id,created_at,updated_at
+1,56789012F,Carla,Puig,carla.puig@gmail.com,QR-CON-56789012F-001,1,2026-11-02 10:00:00,2026-11-02 10:00:00
+2,67890123G,Hugo,Soler,hugo.soler@gmail.com,QR-CON-67890123G-002,1,2026-11-02 10:05:00,2026-11-02 10:05:00
+3,78901234H,Elena,Roca,elena.roca@gmail.com,QR-CON-78901234H-003,2,2026-11-02 10:10:00,2026-11-02 10:10:00
+4,Y2345678J,Nil,Serra,nil.serra@gmail.com,QR-CON-Y2345678J-004,3,2026-11-02 10:15:00,2026-11-02 10:15:00
+5,89012345K,Clara,Torres,clara.torres@gmail.com,QR-CON-89012345K-005,5,2026-11-02 10:20:00,2026-11-02 10:20:00
+
+# TABLA: administrador
+id,Usuari,Contrasenya,created_at,updated_at
+1,admin_principal,$2y$12$mN7oP8qR9sT0uV1wX2yZ3a.4b5c6d7e8f9g0h1i2j3k4l5m6n7o8P,2026-10-30 08:00:00,2026-10-30 08:00:00
+2,admin_events,$2y$12$qR9sT0uV1wX2yZ3a4b5c6d.7e8f9g0h1i2j3k4l5m6n7o8p9q0r1S,2026-10-30 08:10:00,2026-10-30 08:10:00
+3,admin_suport,$2y$12$uV1wX2yZ3a4b5c6d7e8f9g.0h1i2j3k4l5m6n7o8p9q0r1s2t3u4V,2026-10-30 08:20:00,2026-10-30 08:20:00
+4,coord_daw,$2y$12$yZ3a4b5c6d7e8f9g0h1i2j.3k4l5m6n7o8p9q0r1s2t3u4v5w6x7Y,2026-10-30 08:30:00,2026-10-30 08:30:00
+5,coord_centre,$2y$12$c6d7e8f9g0h1i2j3k4l5m6.n7o8p9q0r1s2t3u4v5w6x7y8z9a0bC,2026-10-30 08:40:00,2026-10-30 08:40:00
+
+# TABLA: esdeveniment
+id,Nom,Descripcio,Ubicacio,Data,Hora_Inici,Hora_Finalitzacio,Puntuacio,Estat,created_at,updated_at
+1,Jornada de Portes Obertes,"Presentacio dels cicles formatius i visita guiada per les instal.lacions del centre",Auditori Principal,2026-11-20,09:00:00,13:00:00,50,1,2026-11-01 12:00:00,2026-11-01 12:00:00
+2,Taller de Ciberseguretat,"Taller practic sobre seguretat en xarxes, analisis de vulnerabilitats i bones practiques",Aula Informatica 2,2026-11-25,11:00:00,13:30:00,100,1,2026-11-01 12:15:00,2026-11-01 12:15:00
+3,Fira Tecnologica 2026,"Exposicio de projectes d'alumnes i estands d'empreses col.laboradores del sector TIC",Pati Central,2026-12-02,10:00:00,18:00:00,150,1,2026-11-01 12:30:00,2026-11-01 12:30:00
+4,Xerrada Intel.ligencia Artificial,"Conferencia sobre aplicacions actuals de la IA en el desenvolupament de programari",Sala d'Actes,2026-12-10,16:00:00,18:00:00,75,1,2026-11-01 12:45:00,2026-11-01 12:45:00
+5,Cerimonia de Graduacio,"Acte de cloenda del curs academic i lliurament de diplomes als graduats",Teatre Municipal,2026-12-18,18:00:00,21:00:00,200,0,2026-11-01 13:00:00,2026-11-01 13:00:00
+
+# TABLA: escanejador
+id,Nom,Contrasenya,created_at,updated_at
+1,Escaner_Porta_Principal,$2y$12$f9g0h1i2j3k4l5m6n7o8p9.q0r1s2t3u4v5w6x7y8z9a0b1c2d3eF,2026-11-01 08:00:00,2026-11-01 08:00:00
+2,Escaner_Auditori,$2y$12$j3k4l5m6n7o8p9q0r1s2t3.u4v5w6x7y8z9a0b1c2d3e4f5g6h7iJ,2026-11-01 08:05:00,2026-11-01 08:05:00
+3,Escaner_Aula2,$2y$12$n7o8p9q0r1s2t3u4v5w6x7.y8z9a0b1c2d3e4f5g6h7i8j9k0l1mN,2026-11-01 08:10:00,2026-11-01 08:10:00
+4,Escaner_Pati,$2y$12$r1s2t3u4v5w6x7y8z9a0b1.c2d3e4f5g6h7i8j9k0l1m2n3o4p5qR,2026-11-01 08:15:00,2026-11-01 08:15:00
+5,Escaner_Recepcio,$2y$12$v5w6x7y8z9a0b1c2d3e4f5.g6h7i8j9k0l1m2n3o4p5q6r7s8t9uV,2026-11-01 08:20:00,2026-11-01 08:20:00
+
+# TABLA: matriculacio
+id,persona_id,Tipus_Persona,esdeveniment_id,escanejador_id,Punt_de_control,Data,Hora,Validacio_correcta,created_at,updated_at
+1,12345678A,alumne,1,2,Acces Auditori,2026-11-20,09:05:12,1,2026-11-20 09:05:12,2026-11-20 09:05:12
+2,56789012F,convidat,1,1,Porta Principal,2026-11-20,09:08:45,1,2026-11-20 09:08:45,2026-11-20 09:08:45
+3,23456789B,alumne,2,3,Entrada Aula 2,2026-11-25,11:02:30,1,2026-11-25 11:02:30,2026-11-25 11:02:30
+4,78901234H,convidat,3,4,Pati Central,2026-12-02,10:15:00,1,2026-12-02 10:15:00,2026-12-02 10:15:00
+5,X1234567D,alumne,4,5,Recepcio,2026-12-10,16:04:18,0,2026-12-10 16:04:18,2026-12-10 16:04:18
+6,89012345K,convidat,4,1,Porta Principal,2026-12-10,16:10:05,1,2026-12-10 16:10:05,2026-12-10 16:10:05
