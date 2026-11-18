@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Esdeveniment;
 use Illuminate\Http\Request;
 
 class EsdevenimentController extends Controller
@@ -11,7 +12,11 @@ class EsdevenimentController extends Controller
      */
     public function index()
     {
-        //
+        $esdeveniments = Esdeveniment::get();
+        return view('admin.gestionar_actes',
+        [
+            'esdeveniments' => $esdeveniments
+        ]);
     }
 
     /**
@@ -19,7 +24,8 @@ class EsdevenimentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.alta_acte');
+
     }
 
     /**
@@ -27,7 +33,16 @@ class EsdevenimentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Esdeveniment::create([
+            'Nom' => $request->input('nom'),
+            'Descripcio' => $request->input('descripcio'),
+            'Ubicacio' => $request->input('ubicacio'),
+            'Data' => $request->input('data'),
+            'Hora_Inici' => $request->input('hora_inici'),
+            'Hora_Finalitzacio' => $request->input('hora_finalitzacio'),
+            'Puntuacio' => $request->input('puntuacio'),
+            'Estat' => $request->boolean('estat')
+        ]);
     }
 
     /**
@@ -35,7 +50,6 @@ class EsdevenimentController extends Controller
      */
     public function show(string $id)
     {
-        //
     }
 
     /**
@@ -43,7 +57,8 @@ class EsdevenimentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.alta_acte');
+
     }
 
     /**
@@ -51,7 +66,16 @@ class EsdevenimentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+                Esdeveniment::edit([
+            'Nom' => $request->input('nom'),
+            'Descripcio' => $request->input('descripcio'),
+            'Ubicacio' => $request->input('ubicacio'),
+            'Data' => $request->input('data'),
+            'Hora_Inici' => $request->input('hora_inici'),
+            'Hora_Finalitzacio' => $request->input('hora_finalitzacio'),
+            'Puntuacio' => $request->input('puntuacio'),
+            'Estat' => $request->boolean('estat')
+        ]);
     }
 
     /**
