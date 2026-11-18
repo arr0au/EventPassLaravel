@@ -18,43 +18,43 @@
             </header>
 
             <div class="botons">
-                <a href="{{ route('admin.gestionar_alumnes') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.gestionar_alumnes') }}">
                     <button type="button" class="boto_general">Gestionar alumnes</button>
                 </a>
     
-                <a href="{{ route('admin.import_alumnes') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.import_alumnes') }}">
                     <button type="button" class="boto_general">Importar o donar d'alta alumnes</button>
                 </a>
     
-                <a href="{{ route('admin.gestionar_actes') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.gestionar_actes') }}">
                     <button type="button" class="boto_general">Gestionar actes i activitats</button>
                 </a>
 
-                <a href="{{ route('admin.consultar_invitacions') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.consultar_invitacions') }}">
                     <button type="button" class="boto_general">Consultar invitacions</button>
                 </a>
 
-                <a href="{{ route('admin.consultar_assistents') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.consultar_assistents') }}">
                     <button type="button" class="boto_general">Consultar assistents</button>
                 </a>
 
-                <a href="{{ route('admin.gestio_punts') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.gestio_punts') }}">
                     <button type="button" class="boto_general">Gestionar punts de control</button>
                 </a>
 
-                <a href="{{ route('admin.consultar_registres') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.consultar_registres') }}">
                     <button type="button" class="boto_general">Consultar registres d'accés</button>
                 </a>
 
-                <a href="{{ route('admin.consultar_ranquing') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.consultar_ranquing') }}">
                     <button type="button" class="boto_general">Consultar el rànquing</button>
                 </a>
 
-                <a href="{{ route('admin.consultar_estadistiques') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.consultar_estadistiques') }}">
                     <button type="button" class="boto_general">Consultar estadístiques</button>
                 </a>
 
-                <a href="{{ route('admin.configuracio') }}" style="text-decoration: none;">
+                <a href="{{ route('admin.configuracio') }}">
                     <button type="button" class="boto_general">Configuració</button>
                 </a>
             </div>

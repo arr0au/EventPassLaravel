@@ -747,6 +747,318 @@ body > p:last-of-type {
 }
 
 /* ==========================================================================
+   UTILITATS I COMPONENTS ESPECÍFICS DE VISTES
+   ========================================================================== */
+
+.botons a {
+    text-decoration: none;
+}
+
+.formulari_alta {
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.fila_formulari {
+    display: flex;
+    gap: 12px;
+}
+
+.fila_formulari_final {
+    margin-bottom: 4px;
+}
+
+.camp_formulari {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.camp_formulari_flex {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.alert_amb_icona {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.alert_amb_icona svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.error_alert.alert_amb_icona {
+    margin-top: 4px;
+}
+
+.boto_ample {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.cercador_amb_icona {
+    position: relative;
+    margin-top: 4px;
+}
+
+.cercador_amb_icona svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.cercador_amb_icona .input_general {
+    padding-left: 42px;
+}
+
+.llista_seleccionable {
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.llista_seleccionable .objecte_llista {
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 12px 14px;
+}
+
+.llista_seleccionable .info_alumne_llista {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.llista_seleccionable .info_alumne_llista strong {
+    font-size: 0.95rem;
+}
+
+.llista_seleccionable .info_alumne_llista span {
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--text-muted);
+}
+
+.resum_seleccio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    padding: 0 4px;
+}
+
+.accions_fila {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.accions_fila > button {
+    flex: 1;
+}
+
+/* Estadístiques */
+.filtre_ambit {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.filtre_ambit .label_text {
+    font-size: 0.8rem;
+}
+
+.desc_apartat.nota_estadistica_md {
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.desc_apartat.nota_estadistica {
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+.desc_apartat.nota_estadistica_mt8 {
+    font-size: 0.8rem;
+    margin-top: 8px;
+}
+
+.desc_apartat.nota_estadistica_mt12 {
+    font-size: 0.8rem;
+    margin-top: 12px;
+}
+
+.estadistica_capcalera {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.estadistica_valor_grup {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.estadistica_valor {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--brand-green);
+    letter-spacing: -0.02em;
+}
+
+.badge_estadistica {
+    margin-bottom: 6px;
+}
+
+.estadistica_subtitol {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: -12px;
+}
+
+.barra_progres_mt4 {
+    margin-top: 4px;
+}
+
+.llegenda_grafic {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.llegenda_item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.llegenda_item span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.llegenda_quadrat {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+.llegenda_quadrat.verd {
+    background-color: var(--brand-green);
+}
+
+.llegenda_quadrat.gris {
+    background-color: var(--brand-gray-bar);
+}
+
+.llista_barres {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.llista_barres_compacta {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 4px;
+}
+
+.item_barra {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item_barra_capcalera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.item_barra_nom {
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.item_barra_dada {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.item_barra_valor {
+    font-weight: 700;
+    color: var(--brand-green);
+    font-size: 0.95rem;
+}
+
+.grup_barres {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.barra_progres.barra_prima {
+    height: 6px;
+}
+
+.barra_progres .barra_grisa {
+    background-color: var(--brand-gray-bar);
+}
+
+.estadistica_gran {
+    font-size: 2.1rem;
+    font-weight: 400;
+    color: var(--brand-green);
+    letter-spacing: -0.02em;
+    margin-top: 4px;
+}
+
+.barra_doble {
+    display: flex;
+    width: 100%;
+    height: 12px;
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.barra_doble_verd {
+    background-color: var(--brand-green);
+}
+
+.barra_doble_vermell {
+    background-color: var(--brand-red);
+}
+
+.estadistica_badges_fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.amplada_16_66 { width: 16.66%; }
+.amplada_18_75 { width: 18.75%; }
+.amplada_20 { width: 20%; }
+.amplada_40 { width: 40%; }
+.amplada_50 { width: 50%; }
+.amplada_80 { width: 80%; }
+.amplada_83_33 { width: 83.33%; }
+.amplada_100 { width: 100%; }
+
+/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 
