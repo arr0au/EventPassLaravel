@@ -13,10 +13,12 @@ class EsdevenimentController extends Controller
     public function index()
     {
         $esdeveniments = Esdeveniment::get();
-        return view('admin.gestionar_actes',
-        [
-            'esdeveniments' => $esdeveniments
-        ]);
+        return view(
+            'admin.gestionar_actes',
+            [
+                'esdeveniments' => $esdeveniments
+            ]
+        );
     }
 
     /**
@@ -25,7 +27,6 @@ class EsdevenimentController extends Controller
     public function create()
     {
         return view('admin.alta_acte');
-
     }
 
     /**
@@ -48,16 +49,14 @@ class EsdevenimentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-    }
+    public function show(string $id) {}
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        $esdeveniment = Esdeveniment::find($id);
+        $esdeveniment = Esdeveniment::findOrFail($id);
         return view('admin.edit_acte', compact('esdeveniment'));
     }
 
@@ -66,7 +65,8 @@ class EsdevenimentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-                Esdeveniment::edit([
+        $esdeveniment = Esdeveniment::findOrFail($id);
+        $esdeveniment->update([
             'Nom' => $request->input('nom'),
             'Descripcio' => $request->input('descripcio'),
             'Ubicacio' => $request->input('ubicacio'),
@@ -74,17 +74,19 @@ class EsdevenimentController extends Controller
             'Hora_Inici' => $request->input('hora_inici'),
             'Hora_Finalitzacio' => $request->input('hora_finalitzacio'),
             'Puntuacio' => $request->input('puntuacio'),
-            'Estat' => $request->boolean('estat')
+            'Estat' => $request->boolean('estat'),
         ]);
+
+        return redirect()->route('esdeveniment.index')->with('success', 'Esdeveniment creat correctament.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Esdeveniment $esdeveniment)
-            {
+    {
         $esdeveniment->delete();
 
         return redirect()->back()->with('success', 'Alumno eliminado correctamente');
-        }
+    }
 }
