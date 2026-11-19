@@ -33,7 +33,7 @@
                     <strong>{{ $alumne->Nom }}</strong>
                     <span>{{ $alumne->DNI_NIE }}</span>
                     <span>{{ $alumne->Puntuacio}}</span>
-                    
+                    <button type="button" onclick="window.location='{{ route('alumne.edit', $alumne) }}'" class="boto_general boto_continuar">Editar</button>
                     <form action="{{ route('alumne.destroy', $alumne) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')

@@ -73,9 +73,22 @@ class AlumneController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id)
     {
-        //
+        $alumne = Alumne::findOrFail($id);
+        $alumne->update([
+            'DNI_NIE' => $request->DNI_NIE,
+            'Nom' => $request->Nom,
+            'Cognom' => $request->Cognom,
+            'Correu' => $request->Correu,
+            'Contrasenya' => Hash::make($request->Contrasenya),
+            'QR_Personal' => (string) Str::uuid(),
+            'Invitacions_Disponibles' => $request->input('Invitacions_Disponibles', 4),
+            'Puntuacio' => $request->input('Puntuacio', 0),
+            'GrupClasse' => $request->input('GrupClasse', 'Sense grup')
+        ]);
+
+        return redirect()->route('alumne.index')->with('success', 'Alumne actualitzat correctament.');
     }
 
     /**
