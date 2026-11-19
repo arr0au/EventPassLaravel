@@ -81,8 +81,10 @@ class EsdevenimentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+    public function destroy(Esdeveniment $esdeveniment)
+            {
+        $esdeveniment->delete();
+
+        return redirect()->back()->with('success', 'Alumno eliminado correctamente');
+        }
 }

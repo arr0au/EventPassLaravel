@@ -35,6 +35,14 @@
                     <span>{{ $esdeveniment->Hora_Inici}}</span>
                     <span>{{ $esdeveniment->Hora_Finalitzacio }}</span>
                     <span>{{ $esdeveniment->Estat}}</span>
+                    <button type="button" class="boto_general">Editar</button>
+                    <form action="{{ route('esdeveniment.destroy', $esdeveniment) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('¿Seguro que quieres eliminar este evento?')">
+                            Eliminar
+                        </button>
+                    </form>
                     </li>
             @endforeach
             </ul>
@@ -45,7 +53,6 @@
                 <h3 class="text_fitxa">Editar l'acte</h3>
                 <span class="badge">ID 101</span>
             </header>
-                            <button type="button" class="boto_general boto_vermell">Eliminar aquest acte</button>
             <p class="alert_msg">Abans d'eliminar-lo, revisa els registres de matriculació associats a l'acte.</p>
         </section>
     </main>
