@@ -21,7 +21,7 @@
         </header>
         
         <input type="search" class="input_general input_text" placeholder="Cerca un acte o una activitat">
-        <button type="button" class="boto_general boto_continuar">+ Crear un acte</button>
+        <button type="button" onclick="window.location='{{ route('esdeveniment.create') }}'" class="boto_general boto_continuar">+ Crear un acte</button>
 
         <section class="div_general div_llista">
             <header>
