@@ -19,7 +19,6 @@
             <p id="text-petit-titol" class="desc_apartat">Consulta l'alumnat i revisa les seves dades.</p>
         </header>
 
-        <!-- INICI: contingut afegit per a la prova del cercador i la llista d'alumnes -->
         <section class="div_general div_llista" aria-labelledby="titol-cercador">
             <header>
                 <h3 id="titol-cercador" class="text_fitxa text_indicacio">Alumnes</h3>
@@ -34,6 +33,7 @@
                     <strong>{{ $alumne->Nom }}</strong>
                     <span>{{ $alumne->DNI_NIE }}</span>
                     <span>{{ $alumne->Puntuacio}}</span>
+                    
                     <form action="{{ route('alumne.destroy', $alumne) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
