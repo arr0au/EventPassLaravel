@@ -35,7 +35,7 @@
                     <span>{{ $esdeveniment->Hora_Inici}}</span>
                     <span>{{ $esdeveniment->Hora_Finalitzacio }}</span>
                     <span>{{ $esdeveniment->Estat}}</span>
-                    <button type="button" class="boto_general">Editar</button>
+                    <button type="button" onclick="window.location='{{ route('esdeveniment.edit', $esdeveniment) }}'" class="boto_general boto_continuar">Editar</button>
                     <form action="{{ route('esdeveniment.destroy', $esdeveniment) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')

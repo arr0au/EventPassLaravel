@@ -57,8 +57,8 @@ class EsdevenimentController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin.alta_acte');
-
+        $esdeveniment = Esdeveniment::find($id);
+        return view('admin.edit_acte', compact('esdeveniment'));
     }
 
     /**

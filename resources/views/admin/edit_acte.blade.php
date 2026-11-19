@@ -19,32 +19,33 @@
             <h2 id="titolpetit" class="nom_apartat">Gestionar actes i activitats</h2>
             <p id="text-petit-titol" class="desc_apartat">Organitza els actes, els horaris i la puntuació.</p>
         </header>
-        <form class="div_formulari" action="{{ route('esdeveniment.store') }}" method="POST">
+        <form class="div_formulari" action="{{ route('esdeveniment.update', $esdeveniment) }}" method="POST">
             @csrf
+            @method('PUT')
             <label class="label_text">Nom de l'acte</label>
-            <input type="text" class="input_general input_text" value="" name="nom" required>
+            <input type="text" class="input_general input_text" value="{{ old('nom', $esdeveniment->Nom) }}" name="nom" required>
 
                 <label class="label_text">Descripció</label>
-                <textarea class="input_general input_text" name="descripcio" required></textarea>
+                <textarea class="input_general input_text" name="descripcio" value="{{ old('descripcio', $esdeveniment->Descripcio) }}" required></textarea>
 
                 <label class="label_text">Ubicació</label>
-                <input type="text" class="input_general input_text" value="" name="ubicacio" required>
+                <input type="text" class="input_general input_text" value="{{ old('ubicacio', $esdeveniment->Ubicacio) }}" name="ubicacio" required>
 
                 <label class="label_text">Data</label>
-                <input type="date" class="input_general" value="2026-10-20" name="data" required>
+                <input type="date" class="input_general" value="{{ old('data', $esdeveniment->Data) }}" name="data" required>
 
                 <label class="label_text">Hora d'inici</label>
-                <input type="time" class="input_general" value="" name="hora_inici" required>
+                <input type="time" class="input_general" value="{{ old('hora_inici', $esdeveniment->Hora_Inici) }}" name="hora_inici" required>
 
                 <label class="label_text">Hora de finalització</label>
-                <input type="time" class="input_general" value="" name="hora_finalitzacio" required>
+                <input type="time" class="input_general" value="{{ old('hora_finalitzacio', $esdeveniment->Hora_Finalitzacio) }}" name="hora_finalitzacio" required>
 
                 <label class="label_text">Puntuació de l'activitat</label>
-                <input type="number" class="input_general" value="" name="puntuacio" required>
+                <input type="number" class="input_general" value="{{ old('puntuacio', $esdeveniment->Puntuacio) }}" name="puntuacio" required>
 
                 <label class="label_text">Estat</label>
                 <div>
-                    <input type="checkbox" class="switch_general" checked name="estat" value="1">
+                    <input type="checkbox" class="switch_general" {{ old('estat', $esdeveniment->Estat) ? 'checked' : '' }} name="estat" value="1">
                     <span class="badge">Actiu</span>
                 </div>
 
