@@ -35,27 +35,28 @@
             @method('PUT')
             <div class="fila_formulari">
                     <div class="camp_formulari_flex">
-                        <input type="text" class="input_general input_text" value="{{ old('nom', $alumne->Nom) }}" name="nom" required>
+                        <label class="label_text">Nom</label>
+                        <input type="text" class="input_general input_text" value="{{ old('Nom', $alumne->Nom) }}" name="Nom" required>
                     </div>
                     <div class="camp_formulari_flex">
                         <label class="label_text">Cognom</label>
-                        <input type="text" class="input_general input_text" value="{{ old('cognom', $alumne->Nom) }}" name="cognom" required>
+                        <input type="text" class="input_general input_text" value="{{ old('Cognom', $alumne->Cognom) }}" name="Cognom" required>
                     </div>
                 </div>
 
                 <div class="camp_formulari">
                     <label class="label_text">DNI/NIE · 9 caràcters</label>
-                    <input type="text" class="input_general input_text" value="{{ old('DNI_NIE', $alumne->Nom) }}" name="DNI_NIE" required>
+                    <input type="text" class="input_general input_text" value="{{ old('DNI_NIE', $alumne->DNI_NIE) }}" name="DNI_NIE" required>
                 </div>
 
                 <div class="camp_formulari">
                     <label class="label_text">Correu electrònic</label>
-                    <input type="email" class="input_general" name="Correu">
+                    <input type="email" class="input_general input_text" value="{{ old('Correu', $alumne->Correu) }}" name="Correu">
                 </div>
 
                 <div class="camp_formulari">
                     <label class="label_text">Contrasenya inicial</label>
-                    <input type="password" class="input_general" name="Contrasenya">
+                    <input type="password" class="input_general input_text" value="{{ old('Contrasenya', $alumne -> Contrasenya) }}" name="Contrasenya">
                 </div>
 
                 <div class="fila_formulari fila_formulari_final">
@@ -67,7 +68,7 @@
                     </div>
                     <div class="camp_formulari_flex">
                         <label class="label_text">Puntuació</label>
-                        <input type="number" class="input_general" name="Puntuacio">
+                        <input type="number" class="input_general input_text" value="{{ old('Puntuacio', $alumne -> Puntuacio) }}" name="Puntuacio">
                     </div>
                 </div>
 
@@ -80,7 +81,7 @@
                 <!-- Botó enviar -->
                 <button type="submit" class="boto_continuar boto_ample">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
-                    Crear alumne
+                    Editar Alumne
                 </button>
             </form>
         </section>

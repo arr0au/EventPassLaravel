@@ -561,8 +561,7 @@ main > section ol li,
 
 .objecte_llista:hover,
 .objecte_llista.seleccionat,
-.objecte_llista.active,
-#llista-alumnes li:first-child {
+.objecte_llista.active{
     background-color: var(--bg-soft-green);
     border-color: var(--brand-green);
 }

@@ -76,6 +76,15 @@ class AlumneController extends Controller
     public function edit(Request $request, string $id)
     {
         $alumne = Alumne::findOrFail($id);
+        return view('admin.edit_alumne', compact('alumne'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $alumne = Alumne::findOrFail($id);
         $alumne->update([
             'DNI_NIE' => $request->DNI_NIE,
             'Nom' => $request->Nom,
@@ -89,14 +98,6 @@ class AlumneController extends Controller
         ]);
 
         return redirect()->route('alumne.index')->with('success', 'Alumne actualitzat correctament.');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
     }
 
     /**

@@ -8,7 +8,8 @@
 
     class Alumne extends Model
     {
-        protected $table = "alumne";
+         protected $table = "alumne";
+        protected $fillable = ['DNI_NIE', 'Nom', 'Cognom','Correu','Contrasenya', 'QR_Personal', 'Invitacions_Disponibles', 'Puntuacio', 'GrupClasse'];
 
         // Un alumne pot portar molts convidats
         public function convidats(): HasMany

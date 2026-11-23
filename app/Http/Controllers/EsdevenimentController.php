@@ -10,16 +10,23 @@ class EsdevenimentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $esdeveniments = Esdeveniment::get();
-        return view(
-            'admin.gestionar_actes',
-            [
-                'esdeveniments' => $esdeveniments
-            ]
-        );
-    }
+public function index(Request $request)
+{
+    $buscar = trim((string) $request->input('buscar'));
+
+    $esdeveniments = Esdeveniment::query()
+        ->when($buscar !== '', function ($query) use ($buscar) {
+            $query->where(function ($q) use ($buscar) {
+                $q->where('Nom', 'like', "%{$buscar}%")
+                  ->orWhere('Estat', 'like', "%{$buscar}%");
+            });
+        })
+        ->get();
+
+    return view('admin.gestionar_actes', [
+        'esdeveniments' => $esdeveniments,
+    ]);
+}
 
     /**
      * Show the form for creating a new resource.
@@ -44,6 +51,7 @@ class EsdevenimentController extends Controller
             'Puntuacio' => $request->input('puntuacio'),
             'Estat' => $request->boolean('estat')
         ]);
+        return redirect()->route('esdeveniment.index')->with('success', 'Esdeveniment creat correctament.');
     }
 
     /**
