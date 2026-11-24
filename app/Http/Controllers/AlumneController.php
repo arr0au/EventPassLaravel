@@ -114,4 +114,12 @@ class AlumneController extends Controller
         $alumnes = Alumne::get();
         return view("admin.consultar_estadistiques");
     }
+    public function ranquing()
+{
+    $alumnes = Alumne::orderBy('Puntuacio', 'desc')->get();
+
+    return view('admin.consultar_ranquing', [
+        'alumnes' => $alumnes,
+    ]);
+}
 }

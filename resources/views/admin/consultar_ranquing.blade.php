@@ -36,30 +36,19 @@
                 <span class="badge comptador_de_indicacio">4 alumnes</span>
             </header>
             <ol>
-                <li class="objecte_llista seleccionat">
-                    <strong>1</strong>
-                    <h4>Laia Vidal</h4>
-                    <span>12345678Z</span>
-                    <span>80 punts</span>
-                </li>
-                <li class="objecte_llista">
-                    <strong>2</strong>
-                    <h4>Marc Soler</h4>
-                    <span>23456789D</span>
-                    <span>60 punts</span>
-                </li>
-                <li class="objecte_llista">
-                    <strong>3</strong>
-                    <h4>Júlia Costa</h4>
-                    <span>34567890V</span>
-                    <span>40 punts</span>
-                </li>
-                <li class="objecte_llista">
-                    <strong>4</strong>
-                    <h4>Nil Roca</h4>
-                    <span>45678901G</span>
-                    <span>20 punts</span>
-                </li>
+            @foreach ($alumnes as $alumne)
+<li class="objecte_llista"
+    style="cursor: pointer;"
+    data-nom-complet="{{ $alumne->Nom }} {{ $alumne->Cognom }}"
+    data-dni="{{ $alumne->DNI_NIE }}"
+    data-correu="{{ $alumne->Correu }}"
+    data-puntuacio="{{ $alumne->Puntuacio }}">
+    <strong>{{ $alumne->Nom }}</strong>
+    <span>{{ $alumne->DNI_NIE }}</span>
+    <span>{{ $alumne->Puntuacio}}</span>
+    </form>
+</li>
+@endforeach
             </ol>
         </section>
 

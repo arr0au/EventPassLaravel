@@ -27,7 +27,6 @@
     <main>
         <header>
             <span id="subtitol-titol" class="permisionspacetext">ESPAI D'ADMINISTRACIÓ</span>
-            <span class="comptador_de_indicacio">Dades de mostra</span>
             <h2 id="titolpetit" class="nom_apartat">Gestionar actes i activitats</h2>
             <p id="text-petit-titol" class="desc_apartat">Organitza els actes, els horaris i la puntuació.</p>
         </header>
@@ -59,6 +58,7 @@
                     style="cursor: pointer;"
                     data-id="{{ $esdeveniment->id ?? '' }}"
                     data-nom="{{ $esdeveniment->Nom }}"
+                    data-descripcio="{{ $esdeveniment->Descripcio }}"
                     data-inici="{{ $esdeveniment->Hora_Inici }}"
                     data-fi="{{ $esdeveniment->Hora_Finalitzacio }}"
                     data-estat="{{ $esdeveniment->Estat }}"
@@ -86,6 +86,7 @@
                 <span class="badge" id="fitxa-id">ID —</span>
             </header>
             <p><strong class="clau_text">Nom:</strong> <span class="valor_text" id="fitxa-nom">—</span></p>
+            <p><strong class="clau_text">Descripció:</strong> <span class="valor_text" id="fitxa-descripcio">—</span></p>
             <p><strong class="clau_text">Hora d'inici:</strong> <span class="valor_text" id="fitxa-inici">—</span></p>
             <p><strong class="clau_text">Hora de finalització:</strong> <span class="valor_text" id="fitxa-fi">—</span></p>
             <p><strong class="clau_text">Estat:</strong> <span class="valor_text" id="fitxa-estat">—</span></p>
@@ -101,6 +102,7 @@
 
             const fitxaId = document.getElementById('fitxa-id');
             const fitxaNom = document.getElementById('fitxa-nom');
+            const fitxaDescripcio = document.getElementById('fitxa-descripcio');
             const fitxaInici = document.getElementById('fitxa-inici');
             const fitxaFi = document.getElementById('fitxa-fi');
             const fitxaEstat = document.getElementById('fitxa-estat');
@@ -115,6 +117,7 @@
 
     if (fitxaId) fitxaId.textContent = item.dataset.id ? `ID ${item.dataset.id}` : 'Seleccionat';
     if (fitxaNom) fitxaNom.textContent = item.dataset.nom || '—';
+    if (fitxaDescripcio) fitxaDescripcio.textContent = item.dataset.descripcio || '—';
     if (fitxaInici) fitxaInici.textContent = item.dataset.inici || '—';
     if (fitxaFi) fitxaFi.textContent = item.dataset.fi || '—';
     if (fitxaEstat) fitxaEstat.textContent = item.dataset.estat || '—';

@@ -42,7 +42,7 @@
                 <h3 id="titol-cercador" class="text_fitxa text_indicacio">Alumnes</h3>
                 <span id="comptador" class="badge comptador_de_indicacio">{{ count($alumnes) }} {{ count($alumnes) === 1 ? 'alumne' : 'alumnes' }}</span>
             </header>
-            <ul id="llista-alumnes" aria-label="Llista d'alumnes de mostra">
+            <ul id="llista-alumnes" aria-label="Llista d'alumnes">
 
 @foreach ($alumnes as $alumne)
 <li class="objecte_llista"

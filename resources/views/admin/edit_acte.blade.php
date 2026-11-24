@@ -15,7 +15,6 @@
     <main>
         <header>
             <span id="subtitol-titol" class="permisionspacetext">ESPAI D'ADMINISTRACIÓ</span>
-            <span class="comptador_de_indicacio">Dades de mostra</span>
             <h2 id="titolpetit" class="nom_apartat">Gestionar actes i activitats</h2>
             <p id="text-petit-titol" class="desc_apartat">Organitza els actes, els horaris i la puntuació.</p>
         </header>
