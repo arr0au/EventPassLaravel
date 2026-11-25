@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alumne;
+use App\Models\Convidat;
+use App\Models\Esdeveniment;
+use App\Models\Matriculacio;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -109,11 +112,76 @@ class AlumneController extends Controller
 
         return redirect()->back()->with('success', 'Alumno eliminado correctamente');
     }
-    public function estadistiques()
+        
+    public function estadistiques(Request $request)
     {
-        $alumnes = Alumne::get();
-        return view("admin.consultar_estadistiques");
+        // Validació de l'entrada
+        $validated = $request->validate([
+            'esdeveniment_id' => 'nullable|integer|exists:esdeveniment,id',
+        ]);
+
+        $esdevenimentId = $validated['esdeveniment_id'] ?? null;
+
+        // Actes per al selector d'àmbit
+        $esdeveniments = Esdeveniment::orderBy('Data', 'desc')->get();
+
+        // Estadístiques de persones i invitacions
+        $totalAlumnes = Alumne::count();
+        $totalConvidats = Convidat::count();
+        $totalDirectori = $totalAlumnes + $totalConvidats;
+
+        $invitacionsMaximes = $totalAlumnes * 4;
+        $invitacionsDisponibles = (int) Alumne::sum('Invitacions_Disponibles');
+        $invitacionsUtilitzades = max(0, $invitacionsMaximes - $invitacionsDisponibles);
+        $percentatgeInvitacions = $invitacionsMaximes > 0
+            ? round(($invitacionsUtilitzades / $invitacionsMaximes) * 100, 2)
+            : 0; // Evitar divisió per zero i arrodoneix a 2 decimals ^
+
+        // Registres de matriculació (tots o filtrats per acte)
+        $registres = Matriculacio::query()
+            ->when($esdevenimentId, fn ($query) => $query->where('esdeveniment_id', $esdevenimentId)) // Si s'ha seleccionat un acte, filtra per aquest acte, sinó tots
+            ->get(['id', 'persona_id', 'esdeveniment_id', 'Punt_de_control']); //Mostrar només els camps necessaris per optimitzar la consulta
+
+        $totalRegistres = $registres->count();
+        $personesUniques = $registres->pluck('persona_id')->unique()->count();
+
+        // Participacions per acte
+        $participacionsPerActe = Esdeveniment::with('matriculacions:id,esdeveniment_id,persona_id') //Carrega només els camps necessaris per optimitzar la consulta
+            ->when($esdevenimentId, fn ($query) => $query->where('id', $esdevenimentId))
+            ->orderBy('Data', 'desc')
+            ->get()
+            ->map(fn (Esdeveniment $acte) => [ // Mapeig temporal per ordenar
+                'nom' => $acte->Nom,
+                'persones' => $acte->matriculacions->pluck('persona_id')->unique()->count(),
+                'registres' => $acte->matriculacions->count(),
+            ]);
+
+        $maxParticipacio = max(1, (int) $participacionsPerActe->max('registres'));
+
+        // 4. Registres per punt de control
+        $registresPerPunt = $registres
+            ->map(fn (Matriculacio $m) => $m->Punt_de_control ?: 'Sense punt de control')
+            ->countBy()
+            ->sortDesc();
+        // Això converteix les variables en un array associatiu amb els noms de les variables com a claus que php pot utilitzar per passar-les a la vista
+        return view('admin.consultar_estadistiques', compact(
+            'esdeveniments',
+            'esdevenimentId',
+            'totalAlumnes',
+            'totalConvidats',
+            'totalDirectori',
+            'invitacionsMaximes',
+            'invitacionsDisponibles',
+            'invitacionsUtilitzades',
+            'percentatgeInvitacions',
+            'totalRegistres',
+            'personesUniques',
+            'participacionsPerActe',
+            'maxParticipacio',
+            'registresPerPunt'
+        ));
     }
+
     public function ranquing()
 {
     $alumnes = Alumne::orderBy('Puntuacio', 'desc')->get();

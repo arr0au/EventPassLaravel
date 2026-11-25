@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Matriculacio extends Model
 {
-    protected $table = "matriculacio";
+    protected $casts = [
+        'Validacio_correcta' => 'boolean',
+    ];
+
+    protected $table = 'matriculacio';
 
     // Retorna l'Alumne o el Convidat segons Tipus_Persona (connectat per DNI_NIE)
     // Ja que es relació polimorfica
