@@ -12,8 +12,7 @@
         Route::view('/gestionar_alumnes', 'admin.gestionar_alumnes')->name('gestionar_alumnes');
         Route::match(['get', 'post'], '/import_alumnes', fn () => view('admin.import_alumnes'))->name('import_alumnes');
         Route::view('/gestionar_actes', 'admin.gestionar_actes')->name('gestionar_actes');
-        Route::view('/consultar_invitacions', 'admin.consultar_invitacions')->name('consultar_invitacions');
-        Route::view('/consultar_assistents', 'admin.consultar_assistents')->name('consultar_assistents');
+        Route::get('/consultar_assistents', [MatriculacioController::class, 'assistents'])->name('consultar_assistents');
         Route::view('/gestio_punts', 'admin.gestio_punts')->name('gestio_punts');
         Route::view('/consultar_registres', 'admin.consultar_registres')->name('consultar_registres');
         Route::view('/consultar_ranquing', 'admin.consultar_ranquing')->name('consultar_ranquing');

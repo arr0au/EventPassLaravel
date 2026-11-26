@@ -18,7 +18,7 @@
             </header>
 
             <div class="botons">
-                <a href="{{ route('admin.gestionar_alumnes') }}">
+                <a href="{{ route('admin.alumne.index') }}">
                     <button type="button" class="boto_general">Gestionar alumnes</button>
                 </a>
     
@@ -26,11 +26,11 @@
                     <button type="button" class="boto_general">Importar o donar d'alta alumnes</button>
                 </a>
     
-                <a href="{{ route('admin.gestionar_actes') }}">
+                <a href="{{ route('admin.esdeveniment.index') }}">
                     <button type="button" class="boto_general">Gestionar actes i activitats</button>
                 </a>
 
-                <a href="{{ route('admin.consultar_invitacions') }}">
+                <a href="{{ route('admin.convidat.index') }}">
                     <button type="button" class="boto_general">Consultar invitacions</button>
                 </a>
 

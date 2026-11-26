@@ -68,6 +68,7 @@
                     <span>{{ $esdeveniment->Hora_Finalitzacio }}</span>
                     <span>{{ $esdeveniment->Estat }}</span>
                     <button type="button" onclick="window.location='{{ route('esdeveniment.edit', $esdeveniment) }}'" class="boto_general boto_continuar">Editar</button>
+                    <button type="button" onclick="event.stopPropagation(); window.location='{{ route('admin.consultar_assistents', ['esdeveniment_id' => $esdeveniment->id]) }}'" class="boto_general">Assistents</button>
                     <form action="{{ route('esdeveniment.destroy', $esdeveniment) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
